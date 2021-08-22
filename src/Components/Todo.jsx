@@ -32,6 +32,7 @@ export default class Todo extends React.Component {
 
   handleDelete = (val) => (e) => {
     e.stopPropagation();
+    console.log("delete");
     this.setState(({ todos }) => ({
       todos: todos.filter(({ id }) => id !== val),
     }));
@@ -94,12 +95,11 @@ export default class Todo extends React.Component {
 
     return (
       <div>
-        <h1>Todo:</h1>
+        <h1>ToDo</h1>
         <div>
-          
           <Input
             type="text"
-            placeholder="Add Todo"
+            placeholder="Enter text"
             value={todoInput}
             onChange={this.handleInputChange}
           />
@@ -109,13 +109,13 @@ export default class Todo extends React.Component {
             onClick={this.handleAddTodo}
           />
         </div>
-        <div className={"flex justify-around mt-4"}>
+        <div>
           {Object.entries(FilterStatuses).map(([, value]) => (
             <Button onClick={this.selectFilter(value)} text={value} />
           ))}
         </div>
         <List
-          todos={filteredTodos}
+          items={filteredTodos}
           editedTodo={editedTodo}
           complete={this.handleComplete}
           editTodo={this.handleEditTodo}
@@ -130,5 +130,5 @@ export default class Todo extends React.Component {
 
 let id = 0;
 function todoItem(text) {
-  return { text: text, id: id + 1 };
+  return { text: text, id: id++ };
 }

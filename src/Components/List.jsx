@@ -3,7 +3,7 @@ import Button from "./Button";
 import Input from "./Input";
 
 export default function List({
-  todos,
+  items,
   editedTodo,
   deleteItem,
   complete,
@@ -13,7 +13,7 @@ export default function List({
 }) {
   return (
     <ul>
-      {todos.map(({ text, id, isEdit }) => {
+      {items.map(({ text, id, isComplete, isEdit }) => {
         return (
           <li id={id}>
             {isEdit ? (
@@ -23,10 +23,9 @@ export default function List({
               </>
             ) : (
               <>
-                <p onClick={complete(id)}>
-                  {text}
-                </p>
-                <Button text="Edit" onClick={edit(id, text)} />
+                <span>{text}</span>
+                <Button text="Complete" onClick={complete(id)} />
+                <Button text="Edit" onClick={edit(id, text)}></Button>
                 <Button text="Delete" onClick={deleteItem(id)} />
               </>
             )}
