@@ -1,6 +1,6 @@
 # Todo list
 
-Simple implementation of Todo in React, pure functionality without styles.
+Simple implementation of Todo in React, pure functionality without styles. The project was made while learning React.
 
 ## Folder structure
 
