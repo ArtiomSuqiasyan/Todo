@@ -1,6 +1,6 @@
-[Link](https://todo-nu-five.vercel.app/)
-
 # Todo list
+
+Simple implementation of Todo in React, pure functionality without styles.
 
 ## Folder structure
 
